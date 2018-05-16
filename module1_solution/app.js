@@ -19,6 +19,7 @@
                 index = lunchArray.indexOf(emplyElement);
             }
             let lunchNumber = lunchArray.length;
+            console.log(lunchArray, lunchNumber)
             if (lunchNumber === 1 && lunchArray[0] === "") $scope.message = "Please enter data first"
             else if (lunchNumber <= 3) $scope.message = "Enjoy!";
             else $scope.message = "Too much!";
