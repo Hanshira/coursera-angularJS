@@ -39,20 +39,20 @@
                 quantity: '10 bags'
             },
             {
-                name: 'cookies',
-                quantity: '10 bags'
+                name: 'chips',
+                quantity: '5 bags'
             },
             {
-                name: 'cookies',
-                quantity: '10 bags'
+                name: 'water',
+                quantity: '10 bottles'
             },
             {
-                name: 'cookies',
-                quantity: '10 bags'
+                name: 'wine',
+                quantity: '4 bottles'
             },
             {
-                name: 'cookies',
-                quantity: '10 bags'
+                name: 'milk',
+                quantity: '3 bottles'
             },
         ];
 
