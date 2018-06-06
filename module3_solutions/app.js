@@ -14,7 +14,6 @@
             scope: {
                 menu: '=myMenu',
                 title: '@myTitle',
-                //onRemove: '&'
             },
         };
         return ddo;
@@ -28,13 +27,13 @@
 
         menu.searchedItem = "";
 
-        menu.title = "List of items conatining the word " + menu.searchedItem;
+        menu.title = ""
 
         menu.getMatchedMenuItems = function () {
             MenuSearchService.getMatchedMenuItems(menu.searchedItem)
                 .then(function (response) {
                     menu.found = response;
-                    console.log("menu.found ", menu.found)
+                    if (menu.searchedItem !== "") menu.title = "List of items containing the word: \" " + menu.searchedItem + "\""
                     return menu.found
                 })
                 .catch(function (error) {
@@ -44,17 +43,9 @@
 
         // this or menu?
         menu.removeItem = function (itemIndex) {
-            console.log("'this' is: ", this);
             this.lastRemoved = this.found[itemIndex].name;
-            console.log("last removed ", this.lastRemoved)
             MenuSearchService.removeItem(itemIndex);
-            console.log("new list ", this.found)
         };
-
-        menu.test = function () {
-            console.log(menu.found);
-            console.log(MenuSearchService.getFoundItems())
-        }
 
     }
 
@@ -70,9 +61,12 @@
                 url: (ApiBasePath + "/menu_items.json"),
             })
                 .then(function (result) {
-                    let resultItems = result.data.menu_items.filter(el => el.description.toLowerCase().indexOf(searchedItem) != -1)
-                    foundItems = resultItems
-                    console.log("foundItems", foundItems)
+                    if (searchedItem === "") foundItems = [];
+                    else {
+                        let resultItems = result.data.menu_items.filter(el => el.description.toLowerCase().indexOf(searchedItem) != -1)
+                        foundItems = resultItems
+                    }
+
                     return foundItems;
                 });
         }
@@ -87,9 +81,6 @@
 
 
     }
-
-
-
 
 
 

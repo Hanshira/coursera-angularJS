@@ -1,12 +1,13 @@
-<!-- <h3>Title: {{ list.myTitle }}</h3> -->
 <br>
 <br>
 <br>
-<h3> {{title}} {{menu.searchedItem}}</h3>
+<h3> {{title}}</h3>
 <ul>
   <li ng-repeat="item in menu.found">
-    Item: {{ item.short_name }} {{ item.name }} {{item.description}}
-    <button ng-click="menu.removeItem($index)">Remove Item</button>
-    <button ng-click="menu.test()">Remove Item test</button>
+    {{ item.name }} - {{ item.short_name }}
+    <br> {{item.description}}
+    <br>
+    <button ng-click="menu.removeItem($index)">Don't want this one!</button>
+
 </ul>
-<!-- <div class="error">OH THE HORROR! COOKIES DETECTED!</div> -->
+<div ng-if="menu.found.length===0">NOTHING FOUND!</div>
